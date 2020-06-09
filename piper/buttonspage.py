@@ -90,7 +90,8 @@ class ButtonsPage(Gtk.Box):
         # Presents the ButtonDialog to configure the mouse button corresponding
         # to the clicked button.
         buttons = self._find_active_profile().buttons
-        dialog = ButtonDialog(ratbagd_button, buttons,
+        device_type = self._device.device_type
+        dialog = ButtonDialog(ratbagd_button, buttons, device_type,
                               title=_("Configure button {}").format(ratbagd_button.index),
                               use_header_bar=True,
                               transient_for=self.get_toplevel())
